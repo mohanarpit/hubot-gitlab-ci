@@ -89,6 +89,19 @@ module.exports = (robot) ->
     gitlab_ci_token = process.env.GITLAB_CI_TOKEN
     res.reply "Hola"
 
+  robot.hear /show monitoring graph$/i, (res) ->
+    res.send "http://admin:admin@demo.arpitmohan.com:3000/dashboard/db/prometheus-stats?from=1477034874471&to=1477035174471&panelId=3&fullscreen"
+    return
+    
+    auth = 'Basic ' + new Buffer('admin:admin').toString('base64');
+    res.http("http://demo.arpitmohan.com:3000/dashboard/db/prometheus-stats?from=1477034874471&to=1477035174471&panelId=3&fullscreen")
+    .headers(Authorization: auth)
+    .get() (err, http_res, body) ->
+      if err
+        res.send 'Sorry. Unable to fetch commit status from Gitlab'
+      else
+        res.send body
+
   robot.hear /hello|hi$/i, (res) ->
     response = ""
     helloResponses = robot.brain.get('helloResponses') * 1 or 0
