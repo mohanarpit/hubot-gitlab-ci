@@ -27,7 +27,8 @@ module.exports = (robot) ->
             project_id = project.id
             res.send "Found project with ID: #{project.id}"
 
-      data="token=31fbfd2df8232e109704cb2b4db700&ref=master"
+      token = process.env.GITLAB_PROJECT_TOKEN
+      data="token=#{token}&ref=master"
       if project_found
           res.http("https://code.usefilter.com/api/v3/projects/#{project_id}/trigger/builds")
           .header("Content-Type","application/x-www-form-urlencoded")
@@ -79,6 +80,27 @@ module.exports = (robot) ->
           else
             res.emote ":cry:"
 
+  robot.hear /gitlab (.*) issues on (.*)$/i, (res) ->
+    #TODO
+    label = res.match[1]
+    project_name = res.match[2]
+    console.log label
+    console.log project_name
+    gitlab_ci_token = process.env.GITLAB_CI_TOKEN
+    res.reply "Hola"
+
+  robot.hear /hello|hi$/i, (res) ->
+    response = ""
+    helloResponses = robot.brain.get('helloResponses') * 1 or 0
+
+    if helloResponses > 1
+      res.reply "Stop it already!"
+      #Resetting the count here. Ideally, this key should be reset every hour or so.
+      robot.brain.set 'helloResponses', 0
+    else
+      res.reply "Howdy there! How can I help?"
+
+    robot.brain.set 'helloResponses', helloResponses+1
   # lulz = ['lol', 'rofl', 'lmao']
   #
   # robot.respond /lulz/i, (res) ->
