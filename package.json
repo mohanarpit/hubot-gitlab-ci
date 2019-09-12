@@ -1,28 +1,28 @@
 {
-  "name": "slack-hubot",
-  "version": "0.0.0",
+  "name": "chatops-hubot",
+  "version": "0.0.1",
   "private": true,
-  "author": "Arpit Mohan <arpit@usefilter.com>",
-  "description": "Slack Hubot for Bicycleai",
+  "author": "Arpit Mohan <me@arpitmohan.com>",
+  "description": "Slack Hubot for ChatOps",
   "dependencies": {
     "request": ">=2.75.0",
-    "hubot": "^2.19.0",
-    "hubot-diagnostics": "0.0.1",
-    "hubot-google-images": "^0.2.6",
-    "hubot-google-translate": "^0.2.0",
-    "hubot-help": "^0.2.0",
-    "hubot-heroku-keepalive": "^1.0.2",
-    "hubot-maps": "0.0.2",
+    "hubot": "^3.3.2",
+    "hubot-diagnostics": "1.0.0",
+    "hubot-google-images": "^0.2.7",
+    "hubot-google-translate": "^0.2.1",
+    "hubot-help": "^1.0.1",
+    "hubot-heroku-keepalive": "^1.0.3",
+    "hubot-maps": "^0.0.3",
     "hubot-pugme": "^0.1.0",
-    "hubot-redis-brain": "0.0.3",
-    "hubot-rules": "^0.1.1",
+    "hubot-redis-brain": "^1.0.0",
+    "hubot-rules": "^1.0.0",
     "hubot-scripts": "^2.17.2",
-    "hubot-shipit": "^0.2.0",
-    "hubot-slack": "^4.2.1",
-    "hubot-thesimpsons": ">= 0.0.0",
+    "hubot-shipit": "^0.2.1",
+    "hubot-slack": "^4.7.1",
+    "hubot-thesimpsons": "^1.1.5",
     "hubot-aws": ">=0.5.0"
   },
   "engines": {
-    "node": "0.10.x"
+    "node": ">=8.0.0 <11.0.0"
   }
 }
